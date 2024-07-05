@@ -1,0 +1,23 @@
+<%#  < % = people.join(", "); %>
+<%# This is the template for the verification email%>
+<% 
+let isMyRequest = resObj.UserId == user.Id
+ %>
+<style type="text/css" media="screen"> 
+    .lbl { 
+        color: grey; 
+    } 
+</style> 
+Dear <%=user.FirstName %>,<br/>
+<br/>
+<% if(isMyRequest){ %>
+    You have just submitted a new reservation request:<br/>
+<% } else { %>
+    You have just received a new reservation request:<br/>
+ <% } %>
+<br/>
+<%
+    let RentLink = `${WebsiteUrl}/rent/${resObj.RentId}`;
+%>
+<%- include("./_reservation." + user.PrefUICulture + ".ejs",{WebsiteUrl,resObj,RentPeriodName}); -%>
+<%- include("./footer." + user.PrefUICulture + ".ejs",{WebsiteUrl:WebsiteUrl}); -%>
