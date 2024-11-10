@@ -17,7 +17,7 @@ Dear <%=user.FirstName %>,<br/>
  <% } %>
 <br/>
 <%
-    let RentLink = `${WebsiteUrl}/rent/${resObj.RentId}`;
+    let RentLink = `${WebsiteUrl}/rentitem/${resObj.RentId}`;
 %>
 <%- include("./_reservation." + user.PrefUICulture + ".ejs",{WebsiteUrl,resObj,RentPeriodName}); -%>
 <%- include("./footer." + user.PrefUICulture + ".ejs",{WebsiteUrl:WebsiteUrl}); -%>

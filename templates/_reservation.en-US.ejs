@@ -1,5 +1,5 @@
 <%#  < % = people.join(", "); %>
-<%# This is the template for the verification email%>
+<%# This is the template for the reservation email%>
 <style type="text/css" media="screen"> 
     .lbl { 
         color: grey; 
@@ -25,11 +25,11 @@
 <tr><td class="lbl">Reserved Periods:</td><td class="val" colspan="3"><%= resObj.ReservedPeriods; %></td> </tr>
 <tr><td class="lbl">Period Price:</td> <td class="val" colspan="3"><%= resObj.PeriodPrice; %></td></tr>
 
-<tr><td class="lbl">From:</td><td class="val"><%= resObj.DTFROM.toDateString(); %></td> <td class="lbl">Time:</td><td class="val"><%= resObj.DTFROM.toTimeString(); %></td> </tr>
-<tr><td class="lbl">To:</td>  <td class="val"><%= resObj.DTTO.toDateString(); %>  </td> <td class="lbl">Time:</td><td class="val"><%= resObj.DTTO.toTimeString(); %></td> </tr>
+<tr><td class="lbl">From:</td><td class="val"><%= DTFROM_dateString %></td> <td class="lbl">Time:</td><td class="val"><%= DTFROM_timeString %></td> </tr>
+<tr><td class="lbl">To:</td>  <td class="val"><%= DTTO_dateString %>  </td> <td class="lbl">Time:</td><td class="val"><%= DTTO_timeString %></td> </tr>
 
-<tr><td class="lbl">Made On:</td><td class="val"><%= resObj.MadeOn.toDateString(); %></td><td class="lbl">Time:</td><td class="val"><%= resObj.MadeOn.toTimeString(); %></td> </tr>
-<%#<tr>ReservationFee: < % = resObj.ReservationFee; % ></tr>%>
+<%#<tr><td class="lbl">Made On:</td><td class="val">< % = MadeOn_dateString % ></td><td class="lbl">Time:</td><td class="val">< %= MadeOn_timeString % ></td> </tr>
+<tr>ReservationFee: < % = resObj.ReservationFee; % ></tr>%>
 <tr><td class="lbl">View Reservation Online:</td> <td class="val" colspan="3"> <a target="_blank" href="<%= LinkUrl; %>"><%= LinkUrl; %></a> </td></tr>
 </table>
 </div>
