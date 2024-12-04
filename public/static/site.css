@@ -66,4 +66,16 @@
     color: blue;
     /* font-weight: bold; */
   }
+
+  .icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Adds space between the icons */
+    margin : 20px;
+  }
+
+  .site-link img {
+    display: block; /* Ensures proper rendering and removes extra space around images */
+  }
   

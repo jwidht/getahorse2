@@ -1,14 +1,4 @@
-<%#  < % = people.join(", "); %>
-<%# This is the template for the verification email%>
-<% 
-let isMyRequest = resObj.UserId == user.Id
- %>
-<style type="text/css" media="screen"> 
-    .lbl { 
-        color: grey; 
-    } 
-</style> 
-Dear <%=user.FirstName %>,<br/>
+Dear <%=FirstName %>,<br/>
 <br/>
 <% if(isMyRequest){ %>
     You have just submitted a new reservation request:<br/>
@@ -16,8 +6,37 @@ Dear <%=user.FirstName %>,<br/>
     You have just received a new reservation request:<br/>
  <% } %>
 <br/>
-<%
-    let RentLink = `${WebsiteUrl}/rentitem/${resObj.RentId}`;
-%>
-<%- include("./_reservation." + user.PrefUICulture + ".ejs",{WebsiteUrl,resObj,RentPeriodName}); -%>
-<%- include("./footer." + user.PrefUICulture + ".ejs",{WebsiteUrl:WebsiteUrl}); -%>
+
+<style type="text/css" media="screen"> 
+    .lbl { 
+        color: grey; 
+        padding: 10px;
+        border: 1px solid #aaf;
+    }
+    .val{ 
+        color: black; 
+        padding: 10px;
+        border: 1px solid #aaf;
+    }
+    .tbl {
+        border-collapse: collapse;
+    }
+</style> 
+
+<div style="overflow-x:auto;">
+<table class="tbl">
+<tr><td class="lbl">Reserved Item:</td> <td class="val" colspan="3"><a target="_blank" href="<%= RentLink; %>"><%= RentLink; %></a></td></tr>
+<tr><td class="lbl">Period Type:</td> <td class="val" colspan="3"><%= RentPeriodName; %></td></tr>
+<tr><td class="lbl">Reserved Periods:</td><td class="val" colspan="3"><%= ReservedPeriods; %></td> </tr>
+<tr><td class="lbl">Period Price:</td> <td class="val" colspan="3"><%= PeriodPrice; %></td></tr>
+
+<tr><td class="lbl">From:</td><td class="val"><%= DTFROM_dateString %></td> <td class="lbl">Time:</td><td class="val"><%= DTFROM_timeString %></td> </tr>
+<tr><td class="lbl">To:</td>  <td class="val"><%= DTTO_dateString %>  </td> <td class="lbl">Time:</td><td class="val"><%= DTTO_timeString %></td> </tr>
+
+<%#<tr><td class="lbl">Made On:</td><td class="val">< % = MadeOn_dateString % ></td><td class="lbl">Time:</td><td class="val">< %= MadeOn_timeString % ></td> </tr>
+<tr>ReservationFee: < % = resObj.ReservationFee; % ></tr>%>
+<tr><td class="lbl">View Reservation Online:</td> <td class="val" colspan="3"> <a target="_blank" href="<%= LinkUrl; %>"><%= LinkUrl; %></a> </td></tr>
+</table>
+</div>
+
+<%- include("./footer.en-US.ejs",{WebsiteUrl:WebsiteUrl}); -%>

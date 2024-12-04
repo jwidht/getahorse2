@@ -1,6 +1,4 @@
-<%#  < % = people.join(", "); %>
-<%# This is the template for the verification email%>
-Dear <%=user.FirstName %>,<br/>
+Dear <%=FirstName %>,<br/>
 <br/>
 You have just received a new chat message:<br/>
 <br/>
@@ -9,4 +7,4 @@ You have just received a new chat message:<br/>
 Please click the link below to reply:<br/>
 <br/>
 <a target="_blank" href="<%= LinkUrl; %>"><%= LinkUrl; %></a><br/>
-<%- include("./footer." + user.PrefUICulture + ".ejs",{WebsiteUrl:WebsiteUrl}); -%>
+<%- include("./footer.en-US.ejs",{WebsiteUrl:WebsiteUrl}); -%>

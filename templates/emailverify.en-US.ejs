@@ -1,8 +1,8 @@
 <%#  < % = people.join(", "); %>
 <%# This is the template for the verification email%>
-Dear <%=user.FirstName %>,<br/>
+Dear <%=FirstName %>,<br/>
 <br/>
 Please click the link below to verify your email:<br/>
 <br/>
 <a target="_blank" href="<%= LinkUrl; %>"><%= LinkUrl; %></a><br/>
-<%- include("./footer." + user.PrefUICulture + ".ejs",{WebsiteUrl:WebsiteUrl}); -%>
+<%- include("./footer.en-US.ejs",{WebsiteUrl:WebsiteUrl}); -%>
