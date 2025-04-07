@@ -1,0 +1,10 @@
+<%# This is the template for the password reset email%>
+Dear <%=FirstName %>,<br/>
+<br/>
+A password reset request was made for your account. If this was you, please click the link below to reset your password:<br/>
+<br/>
+<a target="_blank" href="<%= LinkUrl; %>"><%= LinkUrl; %></a><br/>
+<br/>
+If you did not request this, ignore this email or contact support.<br/>
+<br/>
+<%- include("./footer.en-US.ejs",{WebsiteUrl:WebsiteUrl}); -%>
